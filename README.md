@@ -4,6 +4,8 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 
 ## Endpoints Disponíveis
 
+[URL base da API publicada](https://apivalida.monitor.eco.br:9002/ "URL Base")
+
 ### Validar CPF
 
 **Endpoint:** `/validarcpf/:cpf`
@@ -11,6 +13,7 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 **Descrição:** Este endpoint permite a validação de um número de CPF fornecido como parâmetro. Ele retorna uma resposta indicando se o CPF é válido ou não, com base nas regras de validação estabelecidas.
 
 **Requisição:**
+
 - **Método:** GET
 - **Parâmetros:**
   - `cpf` (string) - O número de CPF a ser validado.
@@ -20,6 +23,7 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 `GET /validarcpf/12345678909`
 
 **Resposta:**
+
 ```json
 {
   "valid": true,
@@ -34,19 +38,20 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 **Descrição:** Este endpoint permite a geração de um novo número de CPF válido de forma aleatória. O CPF gerado é retornado como resposta.
 
 **Requisição:**
+
 - **Método:** GET
 
 **Exemplo de Requisição:**
 `GET /gerarCpf`
 
 **Resposta:**
+
 ```json
 {
     "cpf": "123.456.789-09",
     "cpf_formatado": "12345678909"
 }
 ```
-
 
 ### Validar CNPJ
 
@@ -55,6 +60,7 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 **Descrição:** Este endpoint permite a validação de um número de CNPJ fornecido como parâmetro. Ele retorna uma resposta indicando se o CNPJ é válido ou não, com base nas regras de validação estabelecidas.
 
 **Requisição:**
+
 - **Método:** GET
 - **Parâmetros:**
   - `cnpj` (string) - O número de CNPJ a ser validado.
@@ -64,13 +70,13 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 `GET /validarcnpj/12345678000101`
 
 **Resposta:**
+
 ```json
 {
   "valid": true,
   "message": "O CNPJ é válido."
 }
 ```
-
 
 ### Gerar CNPJ
 
@@ -79,12 +85,14 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 **Descrição:** Este endpoint permite a geração de um novo número de CNPJ válido de forma aleatória. O CNPJ gerado é retornado como resposta.
 
 **Requisição:**
+
 - **Método:** GET
 
 **Exemplo de Requisição:**
 `GET /gerarcnpj`
 
 **Resposta:**
+
 ```json
 {
     "cnpj": "12.345.678/0001-01",
