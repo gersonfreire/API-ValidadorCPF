@@ -11,8 +11,8 @@ const ControllerCNPJ = require('./src/controllers/ControllerCNPJ.js');
 const PORT = process.env.PORT || 9002;
 
 // SSL Certificate
-const privateKey = fs.readFileSync('C:\\Certbot\\live\\llama2.brazilsouth.cloudapp.azure.com\\privkey.pem', 'utf8');
-const certificate = fs.readFileSync('C:\\Certbot\\live\\llama2.brazilsouth.cloudapp.azure.com\\fullchain.pem', 'utf8');
+const privateKey = fs.readFileSync('C:\\Certbot\\live\\apivalida.monitor.eco.br\\privkey.pem', 'utf8');
+const certificate = fs.readFileSync('C:\\Certbot\\live\\apivalida.monitor.eco.br\\fullchain.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 app.use(express.json());
