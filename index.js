@@ -1,8 +1,12 @@
 const express = require('express');
 const https = require('https');
 const fs = require('fs');
+const dotenv = require('dotenv');
 const app = express();
 const bodyParser = require('body-parser');
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Controllers
 const ControllerCPF = require('./src/controllers/ControllerCPF.js');
@@ -11,8 +15,8 @@ const ControllerCNPJ = require('./src/controllers/ControllerCNPJ.js');
 const PORT = process.env.PORT || 9002;
 
 // SSL Certificate
-const privateKey = fs.readFileSync('C:\\Certbot\\live\\apivalida.monitor.eco.br\\privkey.pem', 'utf8');
-const certificate = fs.readFileSync('C:\\Certbot\\live\\apivalida.monitor.eco.br\\fullchain.pem', 'utf8');
+const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, 'utf8');
+const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 app.use(express.json());
