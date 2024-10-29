@@ -2,7 +2,7 @@
 
 Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base nas regras de validação estabelecidas. As regras de validação utilizadas nesta API seguem os cálculos descritos em [Regra de Validação para CPF e CNPJ](https://souforce.cloud/regra-de-validacao-para-cpf-e-cnpj-no-salesforce/).
 
-Observação: A partir de julho de 2026, sequência do CNPJ será formada por números e letras para aumentar capacidade de novos cadastros, por isso, criei um novo repositório com o novo algoritmo de validação. Por favor, utilize o novo e mais completo:
+**Observação: A partir de julho de 2026, o CNPJ será formada por números e letras para aumentar capacidade de novos cadastros, por isso, criei um novo repositório com o novo algoritmo de validação. Por favor, utilize o novo e mais completo:**
 
 [Novo formato de CNPJ Brasil](https://github.com/gersonfreire/novo-cnpj)
 
