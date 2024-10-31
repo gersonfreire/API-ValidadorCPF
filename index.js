@@ -69,5 +69,5 @@ app.get('/gerarCnpj', async (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server is running on ${protocol}://localhost:${PORT}/validarCpf/123456789`);
+    console.log(`Server is running on ${protocol}://localhost:${PORT}/validarCpf/19379041721`);
 });

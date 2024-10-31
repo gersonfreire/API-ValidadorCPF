@@ -1,9 +1,13 @@
 const DaoCPF = require('../dao/DaoCPF');
 
 class ControllerCPF {
-    async ValidarCPF (cpf) {
+    constructor() {
+        this.daoCPF = new DaoCPF();
+    }
+
+    async ValidarCPF(cpf) {
         try {
-            const response = await DaoCPF.ValidarCPF(cpf);
+            const response = await this.daoCPF.ValidarCPF(cpf);
             return {
                 "valid": response,
                 "message": response ? 'O CPF é valido' : 'O CPF é invalido'
@@ -14,14 +18,14 @@ class ControllerCPF {
         }
     }
 
-    async GerarCPF () {
-        try{
-            const response = await DaoCPF.GerarCPF();
-            return response
+    async GerarCPF() {
+        try {
+            const response = await this.daoCPF.GerarCPF();
+            return response;
         } catch (err) {
             throw err;
         }
     }
 }
 
-module.exports = new ControllerCPF()
+module.exports = new ControllerCPF();
