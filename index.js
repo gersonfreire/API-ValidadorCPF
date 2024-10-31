@@ -1,27 +1,35 @@
 const express = require('express');
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const dotenv = require('dotenv');
 const app = express();
 const bodyParser = require('body-parser');
 
-// Load environment variables from an alternate .env file
-if (fs.existsSync('.env1')) {
-    dotenv.config({ path: '.env1' });
-} else {
-    console.warn('Warning: .env1 file not found. Using default environment variables.');
+// Check if the .env file exists
+const envFilePath = '.env1';
+if (fs.existsSync(envFilePath)) {
+    // Load environment variables from the .env file
+    dotenv.config({ path: envFilePath });
 }
 
-// Controllers
 const ControllerCPF = require('./src/controllers/ControllerCPF.js');
 const ControllerCNPJ = require('./src/controllers/ControllerCNPJ.js');
 
 const PORT = process.env.PORT || 9002;
 
-// SSL Certificate
-const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, 'utf8');
-const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, 'utf8');
-const credentials = { key: privateKey, cert: certificate };
+let server;
+
+if (process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH) {
+    // SSL Certificate
+    const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, 'utf8');
+    const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, 'utf8');
+    const credentials = { key: privateKey, cert: certificate };
+
+    server = https.createServer(credentials, app);
+} else {
+    server = http.createServer(app);
+}
 
 app.use(express.json());
 
@@ -54,9 +62,6 @@ app.get('/gerarCnpj', async (req, res) => {
     res.json(response);
 });
 
-// Create HTTPS server
-const httpsServer = https.createServer(credentials, app);
-
-httpsServer.listen(PORT, '0.0.0.0', () => {
-    console.log(`HTTPS Server running on port ${PORT}`);
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
