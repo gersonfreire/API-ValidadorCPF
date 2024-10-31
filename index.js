@@ -64,4 +64,5 @@ app.get('/gerarCnpj', async (req, res) => {
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log(`URL path: http${process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH ? 's' : ''}://localhost:${PORT}/validarCnpj/123456789`);
 });
