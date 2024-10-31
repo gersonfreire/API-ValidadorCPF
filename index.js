@@ -6,8 +6,10 @@ const dotenv = require('dotenv');
 const app = express();
 const bodyParser = require('body-parser');
 
+// Determine the .env file path
+const envFilePath = process.argv[2] || '.env';
+
 // Check if the .env file exists
-const envFilePath = '.env';
 if (fs.existsSync(envFilePath)) {
     // Load environment variables from the .env file
     dotenv.config({ path: envFilePath });
