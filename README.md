@@ -6,7 +6,7 @@ Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base 
 
 [Novo formato de CNPJ Brasil](https://github.com/gersonfreire/novo-cnpj)
 
-## Endpoints Disponíveis
+Agradeço ao [theofurtado05](https://github.com/theofurtado05), autor do repositório original. Somente a publicação de deploy original [URL original](https://api-validador-cpf.vercel.app/) não está mais ativa. Caso você queira usar a API publicada, segue a URL base da publicação nova, funcionando, sem restrição:
 
 [URL base da API publicada](https://apivalida.monitor.eco.br:9002/ "URL Base")
 
