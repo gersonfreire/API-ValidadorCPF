@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // Load environment variables from an alternate .env file
-dotenv.config({ path: './path/to/your/alternate.env' });
+dotenv.config({ path: './bigvps.env' });
 
 // Controllers
 const ControllerCPF = require('./src/controllers/ControllerCPF.js');
