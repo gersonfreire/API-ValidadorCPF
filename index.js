@@ -19,16 +19,20 @@ const ControllerCNPJ = require('./src/controllers/ControllerCNPJ.js');
 const PORT = process.env.PORT || 9002;
 
 let server;
+let protocol;
 
-if (process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH) {
+if (process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH &&
+    fs.existsSync(process.env.SSL_KEY_PATH) && fs.existsSync(process.env.SSL_CERT_PATH)) {
     // SSL Certificate
     const privateKey = fs.readFileSync(process.env.SSL_KEY_PATH, 'utf8');
     const certificate = fs.readFileSync(process.env.SSL_CERT_PATH, 'utf8');
     const credentials = { key: privateKey, cert: certificate };
 
     server = https.createServer(credentials, app);
+    protocol = 'https';
 } else {
     server = http.createServer(app);
+    protocol = 'http';
 }
 
 app.use(express.json());
@@ -63,6 +67,5 @@ app.get('/gerarCnpj', async (req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    console.log(`URL path: http${process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH ? 's' : ''}://localhost:${PORT}/validarCnpj/123456789`);
+    console.log(`Server is running on ${protocol}://localhost:${PORT}/validarCpf/123456789`);
 });
