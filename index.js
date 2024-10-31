@@ -6,7 +6,11 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // Load environment variables from an alternate .env file
-dotenv.config({ path: '.env' });
+if (fs.existsSync('.env1')) {
+    dotenv.config({ path: '.env1' });
+} else {
+    console.warn('Warning: .env1 file not found. Using default environment variables.');
+}
 
 // Controllers
 const ControllerCPF = require('./src/controllers/ControllerCPF.js');
