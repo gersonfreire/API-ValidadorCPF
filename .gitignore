@@ -8,3 +8,9 @@ env
 certificates.env
 
 bigvps.env
+src/python/__pycache__/cpf.cpython-313.pyc
+src/python/__pycache__/dv.cpython-313.pyc
+src/python/api/controllers/__pycache__/cnpj_controller.cpython-313.pyc
+src/python/api/controllers/__pycache__/cpf_controller.cpython-313.pyc
+src/python/api/dao/__pycache__/cnpj_dao.cpython-313.pyc
+src/python/api/dao/__pycache__/cpf_dao.cpython-313.pyc
