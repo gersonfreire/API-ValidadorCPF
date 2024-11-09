@@ -1,113 +1,55 @@
-# API de Validação e Geração de CPF e CNPJ
+# Novo CNPJ Brasil
 
-Esta API oferece endpoints para validar e gerar números de CPF e CNPJ com base nas regras de validação estabelecidas. As regras de validação utilizadas nesta API seguem os cálculos descritos em [Regra de Validação para CPF e CNPJ](https://souforce.cloud/regra-de-validacao-para-cpf-e-cnpj-no-salesforce/).
+## Sobre
 
-**Observação: A partir de julho de 2026, o CNPJ será formada por números e letras para aumentar capacidade de novos cadastros, por isso, criei um novo repositório com o novo algoritmo de validação. Por favor, utilize o novo e mais completo repositório:**
+Para facilitar a vida dos dev's brasileiros, resolvi concentrar tudo aqui
 
-[Novo formato de CNPJ Brasil](https://github.com/gersonfreire/novo-cnpj)
+Também publiquei um artigo em [Novo CNPJ: dev, prepare-se para trabalhar · telegram · TabNews](https://www.tabnews.com.br/telegram/novo-cnpj-dev-prepare-se-para-trabalhar)
 
-Agradeço ao [theofurtado05](https://github.com/theofurtado05), autor do repositório original. Somente a publicação de deploy original [URL original](https://api-validador-cpf.vercel.app/) não está mais ativa. Caso você queira usar a API publicada, segue a URL base da publicação nova, funcionando, sem restrição:
+Mas o site original, onde está a notícia é o que segue abaixo:
 
-[URL base da API publicada](https://apivalida.bigvps.com.br:9090/validarCpf/19379041721 "https://apivalida.bigvps.com.br:9090/validarCpf/19379041721")
+[CNPJ vai mudar em 2026 e Serpro libera códigos para ajudar na transição • Brasil • Tecnoblog](https://tecnoblog.net/noticias/cnpj-vai-mudar-em-2026-e-serpro-libera-codigos-para-ajudar-na-transicao/)
 
-### Validar CPF
+## Usando
 
-**Endpoint:** `/validarcpf/:cpf`
+*Na pasta "src" existem subpastas para cada linguagem que já foi previamente implementada pelo SERPRO, em cada subpasta existe um README específico para cada linguagem, escolha a sua, apenas clone e divirta-se.*
 
-**Descrição:** Este endpoint permite a validação de um número de CPF fornecido como parâmetro. Ele retorna uma resposta indicando se o CPF é válido ou não, com base nas regras de validação estabelecidas.
+### **Implementações originais do SERPRO:**
 
-**Requisição:**
+* ***TypeScript***
+* ***JavaScript***
+* ***Java***
+* ***Python***
 
-- **Método:** GET
-- **Parâmetros:**
-  - `cpf` (string) - O número de CPF a ser validado.
+---
 
-**Exemplo de Requisição:**
+### Linguagens não implementadas pelo SERPRO
 
-`GET /validarcpf/12345678909`
+***Como o objetivo aqui é facilitar a vida de todos os dev´s brasileiros, resolvi implementar em diversas linguagens e testar cada um do códigos fontes em seus respectivos ambientes típicos de execução, ou seja, montar um ambiente para cada uma das linguagens em que foi implementado e testar o executável, inclusive com correções e melhorias evolutivas, para garantir a confiabilidade e segurança do código fonte. Se você encontrar algum problema, não hesite em abrir um issue no Github do projeto.***
 
-**Resposta:**
+***Inclusive, pretendemos disponibilizar esses ambientes em containers para os senhores. Também disponibilizamos uma API e um chatbot que implementam os mesmos algoritmos, para os mais "hardcores".***
 
-```json
-{
-  "valid": true,
-  "message": "O CPF é válido."
-}
-```
+***As versões nas linguagens não implementadas oringalmente pelo SERPRO, que também podem ser encontradas nas sub-pastas da pasta "SRC", com respectivos READMEs, são as seguintes:***
 
-### Gerar CPF
+* ***C#***
+* ***C++***
+* ***COBOL***
+* ***Ruby***
 
-**Endpoint:** `/gerarcpf`
+---
 
-**Descrição:** Este endpoint permite a geração de um novo número de CPF válido de forma aleatória. O CPF gerado é retornado como resposta.
+### API de Validação e Geração de CPF e CNPJ
 
-**Requisição:**
+Na pasta `src\javascript\api` existe uma API escrita em NodeJs, que oferece endpoints para validar e gerar números de CPF e CNPJ com base nas regras de validação estabelecidas. As regras de validação utilizadas nesta API seguem os cálculos descritos em [Regra de Validação para CPF e CNPJ](https://souforce.cloud/regra-de-validacao-para-cpf-e-cnpj-no-salesforce/).
 
-- **Método:** GET
+Agradeço ao [theofurtado05](https://github.com/theofurtado05), autor do repositório original desta API. Somente a publicação de deploy original [URL original](https://api-validador-cpf.vercel.app/) não está mais ativa. Caso você queira usar a API publicada, segue a URL base da publicação nova, funcionando, sem restrição:
 
-**Exemplo de Requisição:**
-`GET /gerarCpf`
+[URL da API publicada e ativa](https://apivalida.bigvps.com.br:9090/validarCpf/19379041721)
 
-**Resposta:**
+Créditos do repositório original: [theofurtado05 (Theo Furtado Mauricio)](https://github.com/theofurtado05), obrigado Theo!
 
-```json
-{
-    "cpf": "123.456.789-09",
-    "cpf_formatado": "12345678909"
-}
-```
+---
 
-### Validar CNPJ
+Bot do Telegram, publicado, que valida CPF usando o código fonte da pasta `src\python\bot:`
 
-**Endpoint:** `/validarcnpj/:cnpj`
-
-**Descrição:** Este endpoint permite a validação de um número de CNPJ fornecido como parâmetro. Ele retorna uma resposta indicando se o CNPJ é válido ou não, com base nas regras de validação estabelecidas.
-
-**Requisição:**
-
-- **Método:** GET
-- **Parâmetros:**
-  - `cnpj` (string) - O número de CNPJ a ser validado.
-
-**Exemplo de Requisição:**
-
-`GET /validarcnpj/12345678000101`
-
-**Resposta:**
-
-```json
-{
-  "valid": true,
-  "message": "O CNPJ é válido."
-}
-```
-
-### Gerar CNPJ
-
-**Endpoint:** `/gerarcnpj`
-
-**Descrição:** Este endpoint permite a geração de um novo número de CNPJ válido de forma aleatória. O CNPJ gerado é retornado como resposta.
-
-**Requisição:**
-
-- **Método:** GET
-
-**Exemplo de Requisição:**
-`GET /gerarcnpj`
-
-**Resposta:**
-
-```json
-{
-    "cnpj": "12.345.678/0001-01",
-    "cnpj_formatado": "12345678000101"
-}
-```
-
-## Considerações Finais
-
-Esta API oferece a validação e geração de CPF e CNPJ com base nas regras de validação estabelecidas, tornando-a uma ferramenta útil para diversas aplicações. Certifique-se de utilizar os endpoints corretamente de acordo com suas necessidades.
-
-Para obter mais informações sobre as regras de validação utilizadas nesta API, consulte [Regra de Validação para CPF e CNPJ](https://souforce.cloud/regra-de-validacao-para-cpf-e-cnpj-no-salesforce/).
-
-Aproveite os recursos desta API e integre-a em seus projetos para facilitar a validação e geração de CPF e CNPJ.
+[Clique aqui para acessar o bot](https://t.me/OpenGovBot)
